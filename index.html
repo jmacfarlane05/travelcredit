@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Credit Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Flight Credit Tracker</h1>
+      <p class="subtitle">Keep track of your airline credits before they expire</p>
+    </header>
+
+    <section class="summary">
+      <div class="stat-card">
+        <span class="stat-value" id="totalCredits">$0.00</span>
+        <span class="stat-label">Total Credits</span>
+      </div>
+      <div class="stat-card warning">
+        <span class="stat-value" id="expiringCredits">$0.00</span>
+        <span class="stat-label">Expiring in 30 days</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="airlineCount">0</span>
+        <span class="stat-label">Airlines</span>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button id="addCreditBtn" class="btn btn-primary">+ Add Credit</button>
+    </section>
+
+    <section class="credits-list" id="creditsList">
+      <p class="empty-state" id="emptyState">No flight credits yet. Add one to get started!</p>
+    </section>
+
+    <!-- Add/Edit Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <h2 id="modalTitle">Add Flight Credit</h2>
+        <form id="creditForm">
+          <input type="hidden" id="creditId">
+          <div class="form-group">
+            <label for="airline">Airline</label>
+            <input type="text" id="airline" placeholder="e.g. Delta, United, Southwest" required>
+          </div>
+          <div class="form-group">
+            <label for="amount">Credit Amount ($)</label>
+            <input type="number" id="amount" step="0.01" min="0.01" placeholder="0.00" required>
+          </div>
+          <div class="form-group">
+            <label for="expirationDate">Expiration Date</label>
+            <input type="date" id="expirationDate" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmationCode">Confirmation / Credit Code</label>
+            <input type="text" id="confirmationCode" placeholder="e.g. ABC123 (optional)">
+          </div>
+          <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea id="notes" rows="2" placeholder="Optional notes"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="saveBtn">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

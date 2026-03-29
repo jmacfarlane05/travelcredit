@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Credit Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Flight Credit Tracker</h1>
+      <p class="subtitle">Automatically finds flight credits in your email</p>
+    </header>
+
+    <!-- Connection status -->
+    <section class="connect-section" id="connectSection">
+      <div class="connect-card">
+        <h2>Connect your Gmail</h2>
+        <p>We'll scan your email for flight credit and voucher notifications from airlines. Read-only access — we never send or modify emails.</p>
+        <a href="/auth/google" class="btn btn-primary btn-large" id="connectBtn">Connect Gmail</a>
+      </div>
+    </section>
+
+    <!-- Dashboard (hidden until connected) -->
+    <div id="dashboard" style="display: none;">
+      <section class="summary">
+        <div class="stat-card">
+          <span class="stat-value" id="totalCredits">$0.00</span>
+          <span class="stat-label">Total Credits</span>
+        </div>
+        <div class="stat-card warning">
+          <span class="stat-value" id="expiringCredits">$0.00</span>
+          <span class="stat-label">Expiring in 30 days</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="airlineCount">0</span>
+          <span class="stat-label">Airlines</span>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button id="scanBtn" class="btn btn-primary">Scan Email</button>
+        <button id="disconnectBtn" class="btn btn-secondary">Disconnect Gmail</button>
+        <span class="scan-status" id="scanStatus"></span>
+      </section>
+
+      <section class="credits-list" id="creditsList">
+        <p class="empty-state" id="emptyState">Click "Scan Email" to find your flight credits.</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
